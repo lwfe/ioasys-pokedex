@@ -1,10 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, Image, Switch, Text, TextInput} from 'react-native';
+import {
+  FlatList,
+  KeyboardAvoidingView,
+  SafeAreaView,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
+// api
 import api from '../../services/api';
 
-//styled-components
-import {Container, Child, PokemonsList} from './styles';
+// components
+import Header from '../../components/Header/index';
+import Search from '../../components/Search/index';
+import PokeCard from '../../components/PokeCard';
+
+// styles
+import {Container, PokeList} from './styles';
 
 function Main() {
   const [pokemons, setPokemons] = useState([]);
@@ -23,27 +36,21 @@ function Main() {
 
   return (
     <Container>
-      <Child>
-        <Image source={require('../../assets/logo.png')} />
-        <Text>Ioasys Pokedex</Text>
-        <Switch />
-      </Child>
+      <Header />
+      <Search />
 
-      <Child>
-        <TextInput></TextInput>
-      </Child>
-
-      <PokemonsList>
+      <PokeList>
         <FlatList
           data={pokemons}
           horizontal={false}
+          showsVerticalScrollIndicator={false}
           numColumns={3}
           keyExtractor={item => item.name}
           renderItem={({item}) => {
-            return <Text>{item.name}</Text>;
+            return <PokeCard title={item.name} />;
           }}
         />
-      </PokemonsList>
+      </PokeList>
     </Container>
   );
 }

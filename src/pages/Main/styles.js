@@ -2,17 +2,12 @@ import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  font-family: '';
+  border-top-width: 17px;
+  border-color: #ec0334;
 `;
 
-export const Child = styled.View`
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-`;
-
-export const PokemonsList = styled.View`
+export const PokeList = styled.View`
   flex: 8;
-  align-items: center;
+  margin: 40px 40px 0 40px;
+  width: 100%;
 `;
