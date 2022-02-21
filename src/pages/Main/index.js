@@ -1,12 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  FlatList,
-  KeyboardAvoidingView,
-  SafeAreaView,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import {FlatList, View} from 'react-native';
 
 // api
 import api from '../../services/api';
@@ -42,9 +35,8 @@ function Main() {
       <PokeList>
         <FlatList
           data={pokemons}
-          horizontal={false}
-          showsVerticalScrollIndicator={false}
           numColumns={3}
+          showsVerticalScrollIndicator={false}
           keyExtractor={item => item.name}
           renderItem={({item}) => {
             return <PokeCard title={item.name} />;

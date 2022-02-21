@@ -9,5 +9,4 @@ export const Container = styled.SafeAreaView`
 export const PokeList = styled.View`
   flex: 8;
   margin: 40px 40px 0 40px;
-  width: 100%;
 `;
