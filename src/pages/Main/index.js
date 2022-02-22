@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList} from 'react-native';
+
+import {useSelector, useDispatch} from 'react-redux';
+import {load} from '../../store/slices/pokemonSlice';
 
 // api
-import api from '../../services/api';
+import {api} from '../../services/api';
 
 // components
 import Header from '../../components/Header/index';
@@ -13,13 +16,14 @@ import PokeCard from '../../components/PokeCard';
 import {Container, PokeList} from './styles';
 
 function Main() {
-  const [pokemons, setPokemons] = useState([]);
+  const pokemons = useSelector(state => state.pokemons.pokemons);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function loadPokemons() {
       try {
         const response = await api.get('/pokemon');
-        setPokemons(response.data.results);
+        dispatch(load(response.data.results));
       } catch (error) {
         console.log(error);
       }

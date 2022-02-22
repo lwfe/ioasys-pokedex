@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 // Container
 export const Container = styled.View`
   flex: 1;
-  margin: 0 40px;
+  margin: 0 20px;
   flex-direction: row;
 `;
 
