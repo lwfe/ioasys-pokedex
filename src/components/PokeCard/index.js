@@ -1,13 +1,17 @@
 import React from 'react';
+import SvgUri from 'react-native-svg-uri';
 import {TouchableOpacity, Title, Image, Id} from './styles';
 
-export default function PokeCard(props) {
+export default function PokeCard(props, {navigation}) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={props.onPress}>
       <Id>#001</Id>
-      <Image
+      <SvgUri
+        width="72"
+        height="72"
+        style={{alignSelf: 'center'}}
         source={{
-          uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+          uri: props.image,
         }}
       />
       <Title>{props.title}</Title>

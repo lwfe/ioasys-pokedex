@@ -15,11 +15,7 @@ export const Id = styled.Text`
   margin-right: 10px;
   color: #ec0334;
 `;
-export const Image = styled.Image`
-  width: 72px;
-  height: 72px;
-  align-self: center;
-`;
+
 export const Title = styled.Text`
   text-align: center;
   font-family: 'Poppins-Regular';

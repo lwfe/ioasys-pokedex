@@ -1,13 +1,13 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {store} from '../src/store/index';
 import {Provider} from 'react-redux';
 
-// screens
 import Main from './pages/Main/index';
 import Splash from './pages/Splash/index';
+import Favorites from './pages/Favorite';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +24,11 @@ function App() {
           <Stack.Screen
             name="Main"
             component={Main}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Favorites"
+            component={Favorites}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

@@ -14,6 +14,5 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const {load} = pokemonSlice.actions;
-
+export const {load, loadImages} = pokemonSlice.actions;
 export default pokemonSlice.reducer;
