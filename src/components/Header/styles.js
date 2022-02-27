@@ -3,11 +3,10 @@ import styled from 'styled-components/native';
 // Container
 export const Container = styled.View`
   flex: 1;
-  margin: 30px 30px 20px 30px;
+  padding: 30px 30px 20px 30px;
   flex-direction: row;
 `;
 
-// Views
 export const LogoView = styled.View`
   flex: 5;
   flex-direction: row;

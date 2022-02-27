@@ -3,7 +3,7 @@ import {FlatList} from 'react-native';
 
 // Redux
 import {useSelector, useDispatch} from 'react-redux';
-import {load, loadImages} from '../../store/slices/pokemonSlice';
+import {load} from '../../store/slices/pokemonSlice';
 
 // api
 import {api} from '../../services/api';
@@ -40,7 +40,7 @@ function Main({navigation}) {
       id +
       '.svg';
 
-    return <PokeCard title={name} image={imageUrl} />;
+    return <PokeCard title={name} image={imageUrl} Id={id} />;
   }
 
   useEffect(() => {
@@ -50,12 +50,10 @@ function Main({navigation}) {
   return (
     <Container>
       <Header />
-      <Search />
-
+      <Search onPress={() => navigation.navigate('Favorites')} />
       <PokeList>
         <FlatList
           data={pokemons}
-          maxToRenderPerBatch={5}
           numColumns={3}
           showsVerticalScrollIndicator={false}
           keyExtractor={item => item.name}

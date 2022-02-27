@@ -9,6 +9,13 @@ export const TouchableOpacity = styled.TouchableOpacity`
   border-radius: 8px;
 `;
 
+//Views
+export const SvgView = styled.View`
+  width: 72px;
+  height: 72px;
+  align-self: center;
+`;
+
 // Components
 export const Id = styled.Text`
   text-align: right;
