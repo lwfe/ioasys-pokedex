@@ -27,28 +27,31 @@ export const MainDetailsView = styled.View`
 export const MainDetails = styled.View`
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 `;
 export const WeightView = styled.View`
-  flex-direction: row;
-  width: 65px;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-left: 30px;
 `;
 export const HeightView = styled.View`
-  flex-direction: row;
-  width: 65px;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  margin-left: 15px;
-`;
-export const MovesView = styled.View`
-  flex-direction: row;
-  width: 158px;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: center;
   margin-left: 30px;
 `;
+export const MovesView = styled.View`
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+`;
+
+export const MainInfo = styled.View`
+  flex-direction: row;
+`;
+
 export const WeightIcon = styled.Image`
   margin: 0 8px 12px 0;
 `;
@@ -63,6 +66,7 @@ export const MovesText = styled.Text`
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
+  text-align: center;
 `;
 
 export const SubText = styled.Text`

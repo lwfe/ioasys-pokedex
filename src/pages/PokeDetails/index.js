@@ -39,6 +39,13 @@ export default function PokeDetails({route, navigation}) {
         image={image}
         weight={pokemonDetail.weight / 10}
         height={pokemonDetail.height / 10}
+        moves={
+          pokemonDetail.abilities[1]
+            ? pokemonDetail.abilities[0].ability.name +
+              '/' +
+              pokemonDetail.abilities[1].ability.name
+            : pokemonDetail.abilities[0].ability.name
+        }
       />
     </Container>
   );

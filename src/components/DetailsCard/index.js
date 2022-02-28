@@ -22,6 +22,7 @@ import {
   MovesText,
   SubText,
   BaseStatsView,
+  MainInfo,
 } from './styles';
 
 export default function DetailsCard(props) {
@@ -47,19 +48,25 @@ export default function DetailsCard(props) {
         <MainDetailsView>
           <MainDetails>
             <WeightView>
-              <WeightIcon source={require('../../assets/weightIcon.png')} />
-              <Text>{props.weight} kg</Text>
+              <MainInfo>
+                <WeightIcon source={require('../../assets/weightIcon.png')} />
+                <Text>{props.weight} kg</Text>
+              </MainInfo>
               <SubText>Weight</SubText>
             </WeightView>
 
             <HeightView>
-              <HeightIcon source={require('../../assets/heightIcon.png')} />
-              <Text>{props.height} m</Text>
+              <MainInfo>
+                <HeightIcon source={require('../../assets/heightIcon.png')} />
+                <Text>{props.height} m</Text>
+              </MainInfo>
               <SubText>Height</SubText>
             </HeightView>
 
             <MovesView>
-              <MovesText>Chlorophyll / Overgrow</MovesText>
+              <MainInfo>
+                <MovesText>{props.moves}</MovesText>
+              </MainInfo>
               <SubText>Moves</SubText>
             </MovesView>
           </MainDetails>
