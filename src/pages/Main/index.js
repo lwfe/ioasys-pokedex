@@ -3,7 +3,7 @@ import {FlatList} from 'react-native';
 
 // Redux
 import {useSelector, useDispatch} from 'react-redux';
-import {load} from '../../store/slices/pokemonSlice';
+import {load, loadDetail} from '../../store/slices/pokemonSlice';
 
 // api
 import {api} from '../../services/api';
@@ -18,7 +18,18 @@ import {Container, PokeList} from './styles';
 
 function Main({navigation}) {
   const pokemons = useSelector(state => state.pokemons.pokemons);
+  const searchedPokemon = useSelector(state => state.pokemons.searchedPokemon);
   const dispatch = useDispatch();
+
+  async function loadPokemonDetail(name, image) {
+    try {
+      const response = await api.get('/pokemon/' + name);
+      dispatch(loadDetail(response.data));
+      navigation.navigate('PokeDetails', {image: image});
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   function pokemonShow(item) {
     const {name, url} = item.item;
@@ -36,9 +47,9 @@ function Main({navigation}) {
         title={name}
         image={imageUrl}
         Id={id}
-        onPress={() =>
-          navigation.navigate('PokeDetails', {name: name, image: imageUrl})
-        }
+        onPress={() => {
+          loadPokemonDetail(name, imageUrl);
+        }}
       />
     );
   }
@@ -62,7 +73,13 @@ function Main({navigation}) {
       <Search onPress={() => navigation.navigate('Favorites')} />
       <PokeList>
         <FlatList
-          data={pokemons}
+          data={
+            searchedPokemon
+              ? pokemons.filter(function (e) {
+                  return e.name == searchedPokemon.toLowerCase();
+                })
+              : pokemons
+          }
           numColumns={3}
           showsVerticalScrollIndicator={false}
           keyExtractor={item => item.name}
