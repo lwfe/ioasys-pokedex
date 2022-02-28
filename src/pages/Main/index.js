@@ -36,7 +36,9 @@ function Main({navigation}) {
         title={name}
         image={imageUrl}
         Id={id}
-        onPress={() => navigation.navigate('PokeDetails', {name: name})}
+        onPress={() =>
+          navigation.navigate('PokeDetails', {name: name, image: imageUrl})
+        }
       />
     );
   }
