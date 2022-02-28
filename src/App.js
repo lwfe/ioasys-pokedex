@@ -8,6 +8,7 @@ import {Provider} from 'react-redux';
 import Main from './pages/Main/index';
 import Splash from './pages/Splash/index';
 import Favorites from './pages/Favorite';
+import PokeDetails from './pages/PokeDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ function App() {
           <Stack.Screen
             name="Favorites"
             component={Favorites}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="PokeDetails"
+            component={PokeDetails}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

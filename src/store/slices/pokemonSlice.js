@@ -2,6 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
   pokemons: [],
+  pokemonDetail: {},
 };
 
 export const pokemonSlice = createSlice({
@@ -11,8 +12,11 @@ export const pokemonSlice = createSlice({
     load: (state, action) => {
       state.pokemons = action.payload;
     },
+    loadDetail: (state, action) => {
+      state.pokemonDetail = action.payload;
+    },
   },
 });
 
-export const {load, loadImages} = pokemonSlice.actions;
+export const {load, loadDetail} = pokemonSlice.actions;
 export default pokemonSlice.reducer;

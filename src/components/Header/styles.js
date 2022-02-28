@@ -24,7 +24,9 @@ export const SwitchView = styled.View`
 export const Logo = styled.Image``;
 export const Title = styled.Text`
   margin-left: 10px;
-  font-family: 'Poppins-Bold';
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
   font-size: 24px;
   line-height: 32px;
   color: #ec0344;

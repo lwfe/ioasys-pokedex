@@ -20,15 +20,6 @@ function Main({navigation}) {
   const pokemons = useSelector(state => state.pokemons.pokemons);
   const dispatch = useDispatch();
 
-  async function loadPokemons() {
-    try {
-      const response = await api.get('/pokemon');
-      dispatch(load(response.data.results));
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   function pokemonShow(item) {
     const {name, url} = item.item;
     let id = url
@@ -40,10 +31,26 @@ function Main({navigation}) {
       id +
       '.svg';
 
-    return <PokeCard title={name} image={imageUrl} Id={id} />;
+    return (
+      <PokeCard
+        title={name}
+        image={imageUrl}
+        Id={id}
+        onPress={() => navigation.navigate('PokeDetails', {name: name})}
+      />
+    );
   }
 
   useEffect(() => {
+    async function loadPokemons() {
+      try {
+        const response = await api.get('/pokemon');
+        dispatch(load(response.data.results));
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     loadPokemons();
   }, []);
 
